@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { PlusCircle, Trash2, PieChart as ChartIcon, List, BrainCircuit, Wallet, TrendingDown, TrendingUp, AlertTriangle, Info, Bookmark, X, Sparkles, FileUp, FileSpreadsheet, CheckCircle2, Loader2 } from 'lucide-react';
+import { PlusCircle, Trash2, PieChart as ChartIcon, List, BrainCircuit, Wallet, TrendingDown, TrendingUp, AlertTriangle, Info, Bookmark, X, Sparkles, FileUp, FileSpreadsheet, CheckCircle2, Loader2, Library, Package, ChevronRight, ArrowLeft, BarChart3 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 import { Transaction, Category, AIAnalysis } from './types';
 import { getFinancialInsights, extractTransactionsFromFile } from './services/geminiService';
@@ -26,6 +26,19 @@ const App: React.FC = () => {
   const [isRecurring, setIsRecurring] = useState(false);
   
   const [aiAnalysis, setAiAnalysis] = useState<AIAnalysis | null>(null);
+  const [activeFolder, setActiveFolder] = useState<Category | null>(null);
+  const [limits, setLimits] = useState<Record<Category, number>>(() => {
+    const saved = localStorage.getItem('category_limits');
+    return saved ? JSON.parse(saved) : {
+      'Alimentación': 0,
+      'Transporte': 0,
+      'Vivienda': 0,
+      'Entretenimiento': 0,
+      'Salud': 0,
+      'Educación': 0,
+      'Otros': 0
+    };
+  });
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
   const [importSuccess, setImportSuccess] = useState(false);
@@ -46,6 +59,10 @@ const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('recurring_descs', JSON.stringify(recurringDescs));
   }, [recurringDescs]);
+
+  useEffect(() => {
+    localStorage.setItem('category_limits', JSON.stringify(limits));
+  }, [limits]);
 
   const totals = useMemo(() => {
     const income = transactions.filter(t => t.type === 'income').reduce((acc, t) => acc + t.amount, 0);
@@ -196,6 +213,11 @@ const App: React.FC = () => {
 
   const removeRecurring = (desc: string) => {
     setRecurringDescs(recurringDescs.filter(d => d !== desc));
+  };
+
+  const updateLimit = (cat: Category, value: string) => {
+    const num = parseFloat(value) || 0;
+    setLimits(prev => ({ ...prev, [cat]: num }));
   };
 
   return (
@@ -472,47 +494,190 @@ const App: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-[300px] flex flex-col">
-              <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2"><ChartIcon size={20} className="text-indigo-600" />Gastos por Categoría</h3>
+              <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2"><BarChart3 size={20} className="text-indigo-600" />Gastos por Categoría</h3>
               <div className="flex-1 min-h-0">
                 <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie data={chartData} cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
+                  <BarChart data={chartData} layout="vertical" margin={{ left: 20, right: 20 }}>
+                    <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#f1f5f9" />
+                    <XAxis type="number" hide />
+                    <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: '#64748b' }} width={80} />
+                    <RechartsTooltip cursor={{ fill: '#f8fafc' }} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                    <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={20}>
                       {chartData.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
-                    </Pie>
-                    <RechartsTooltip contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
-                  </PieChart>
+                    </Bar>
+                  </BarChart>
                 </ResponsiveContainer>
               </div>
             </div>
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-[300px] flex flex-col">
-              <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2"><List size={20} className="text-indigo-600" />Resumen de Actividad</h3>
+              <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2"><ChartIcon size={20} className="text-indigo-600" />Resumen de Actividad</h3>
               <div className="flex-1 min-h-0">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={[{ name: 'Flujo', Ingresos: totals.income, Gastos: totals.expenses }]}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                    <XAxis dataKey="name" hide /><YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#94a3b8' }} />
-                    <RechartsTooltip cursor={{ fill: '#f8fafc' }} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
-                    <Legend />
-                    <Bar dataKey="Ingresos" fill="#10b981" radius={[4, 4, 0, 0]} barSize={40} /><Bar dataKey="Gastos" fill="#ef4444" radius={[4, 4, 0, 0]} barSize={40} />
-                  </BarChart>
+                  <PieChart>
+                    <Pie 
+                      data={[
+                        { name: 'Ingresos', value: totals.income },
+                        { name: 'Gastos', value: totals.expenses }
+                      ]} 
+                      cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value"
+                    >
+                      <Cell fill="#10b981" />
+                      <Cell fill="#ef4444" />
+                    </Pie>
+                    <RechartsTooltip contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                    <Legend verticalAlign="bottom" height={36}/>
+                  </PieChart>
                 </ResponsiveContainer>
               </div>
             </div>
           </div>
 
+          <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+            <div className="px-8 py-6 border-b border-slate-50 flex justify-between items-center bg-gradient-to-r from-slate-50/50 to-white">
+              <div>
+                <h3 className="font-bold text-slate-800 flex items-center gap-2 text-lg">
+                  <Library className="text-indigo-600" size={22} />
+                  Gestión por Categorías
+                </h3>
+                <p className="text-xs text-slate-400 mt-0.5">Controla tus gastos y establece límites mensuales</p>
+              </div>
+              <div className="bg-indigo-50 px-3 py-1 rounded-full">
+                <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest">Presupuesto</span>
+              </div>
+            </div>
+            
+            <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {CATEGORIES.map((cat, idx) => {
+                const catTotal = transactions
+                  .filter(t => t.category === cat && t.type === 'expense')
+                  .reduce((acc, t) => acc + t.amount, 0);
+                const limit = limits[cat];
+                const percent = limit > 0 ? Math.min((catTotal / limit) * 100, 100) : 0;
+                const isOverLimit = limit > 0 && catTotal > limit;
+                const isActive = activeFolder === cat;
+                
+                return (
+                  <div 
+                    key={cat}
+                    className={`
+                      relative group rounded-2xl border transition-all duration-300 p-4
+                      ${isActive 
+                        ? 'bg-indigo-600 border-indigo-600 shadow-xl shadow-indigo-100 ring-4 ring-indigo-50' 
+                        : 'bg-white border-slate-100 hover:border-indigo-200 hover:shadow-lg'
+                      }
+                    `}
+                  >
+                    <div className="flex justify-between items-start mb-4">
+                      <button 
+                        onClick={() => setActiveFolder(isActive ? null : cat)}
+                        className={`p-3 rounded-xl transition-colors ${isActive ? 'bg-white/20 text-white' : 'bg-indigo-50 text-indigo-600'}`}
+                      >
+                        {isActive ? <Package size={24} /> : <Library size={24} />}
+                      </button>
+                      <div className="text-right">
+                        <p className={`text-[10px] font-bold uppercase tracking-wider ${isActive ? 'text-indigo-200' : 'text-slate-400'}`}>Gasto Actual</p>
+                        <p className={`text-lg font-black ${isActive ? 'text-white' : 'text-slate-800'}`}>
+                          {catTotal.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className={`text-sm font-bold ${isActive ? 'text-white' : 'text-slate-700'}`}>{cat}</span>
+                        <div className="flex items-center gap-2">
+                          <span className={`text-[10px] font-bold ${isActive ? 'text-indigo-200' : 'text-slate-400'}`}>LÍMITE:</span>
+                          <input 
+                            type="number"
+                            value={limit || ''}
+                            onChange={(e) => updateLimit(cat, e.target.value)}
+                            placeholder="Set"
+                            className={`
+                              w-16 text-right text-xs font-bold px-2 py-1 rounded-lg focus:outline-none transition-all
+                              ${isActive 
+                                ? 'bg-white/10 text-white placeholder:text-white/40 focus:bg-white/20' 
+                                : 'bg-slate-50 text-slate-600 focus:bg-indigo-50 focus:text-indigo-600'
+                              }
+                            `}
+                          />
+                        </div>
+                      </div>
+
+                      {limit > 0 && (
+                        <div className="space-y-1.5">
+                          <div className="h-2 w-full bg-black/5 rounded-full overflow-hidden">
+                            <div 
+                              className={`h-full transition-all duration-1000 ${isOverLimit ? 'bg-rose-400' : isActive ? 'bg-white' : 'bg-indigo-500'}`}
+                              style={{ width: `${percent}%` }}
+                            />
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <span className={`text-[10px] font-bold ${isOverLimit ? 'text-rose-300' : isActive ? 'text-indigo-200' : 'text-slate-400'}`}>
+                              {isOverLimit ? '¡LÍMITE EXCEDIDO!' : `${percent.toFixed(0)}% consumido`}
+                            </span>
+                            <span className={`text-[10px] font-bold ${isActive ? 'text-white' : 'text-slate-500'}`}>
+                              {limit}€
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <button 
+                      onClick={() => setActiveFolder(isActive ? null : cat)}
+                      className={`
+                        absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity
+                        ${isActive ? 'text-white/40' : 'text-slate-300'}
+                      `}
+                    >
+                      <ChevronRight size={16} />
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
             <div className="px-6 py-4 border-b border-slate-50 flex justify-between items-center">
-              <h3 className="font-bold text-slate-800">Últimos Movimientos</h3>
-              <span className="text-xs font-medium text-slate-400 bg-slate-50 px-2 py-1 rounded-full">{transactions.length} registros</span>
+              <div className="flex items-center gap-3">
+                {activeFolder && (
+                  <button 
+                    onClick={() => setActiveFolder(null)}
+                    className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 transition-colors"
+                  >
+                    <ArrowLeft size={18} />
+                  </button>
+                )}
+                <h3 className="font-bold text-slate-800">
+                  {activeFolder ? `Carpeta: ${activeFolder}` : 'Últimos Movimientos'}
+                </h3>
+              </div>
+              <span className="text-xs font-medium text-slate-400 bg-slate-50 px-2 py-1 rounded-full">
+                {activeFolder 
+                  ? transactions.filter(t => t.category === activeFolder).length 
+                  : transactions.length
+                } registros
+              </span>
             </div>
             <div className="divide-y divide-slate-50 max-h-[400px] overflow-y-auto">
-              {transactions.length === 0 ? (
-                <div className="px-6 py-12 text-center">
-                  <div className="bg-slate-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><List className="text-slate-300" size={32} /></div>
-                  <p className="text-slate-500 font-medium">No hay registros todavía</p>
-                </div>
-              ) : (
-                transactions.map((t) => (
+              {(() => {
+                const filteredTransactions = activeFolder 
+                  ? transactions.filter(t => t.category === activeFolder)
+                  : transactions;
+
+                if (filteredTransactions.length === 0) {
+                  return (
+                    <div className="px-6 py-12 text-center">
+                      <div className="bg-slate-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <List className="text-slate-300" size={32} />
+                      </div>
+                      <p className="text-slate-500 font-medium">No hay registros en esta carpeta</p>
+                    </div>
+                  );
+                }
+
+                return filteredTransactions.map((t) => (
                   <div key={t.id} className="px-6 py-4 flex items-center justify-between hover:bg-slate-50/50 transition-colors group">
                     <div className="flex items-center gap-4">
                       <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm ${t.type === 'income' ? 'bg-emerald-50 text-emerald-600' : 'bg-rose-50 text-rose-600'}`}>{t.category[0]}</div>
@@ -529,8 +694,8 @@ const App: React.FC = () => {
                       <button onClick={() => deleteTransaction(t.id)} className="p-2 text-slate-300 hover:text-rose-500 opacity-0 group-hover:opacity-100 transition-all rounded-lg hover:bg-rose-50"><Trash2 size={18} /></button>
                     </div>
                   </div>
-                ))
-              )}
+                ));
+              })()}
             </div>
           </div>
         </div>
