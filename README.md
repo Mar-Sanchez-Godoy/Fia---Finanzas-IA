@@ -1,4 +1,5 @@
-📘 FIA — Finanzas IA
+##📘 FIA — Finanzas IA##
+
 Asistente de contabilidad básica para finanzas personales  
 Aplicación creada con Google AI Studio (Gemini) para ayudar a cualquier persona a gestionar sus ingresos, gastos y hábitos financieros de forma sencilla e intuitiva.
 
