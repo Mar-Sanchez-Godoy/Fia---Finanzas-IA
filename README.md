@@ -3,16 +3,16 @@
 </h3>Asistente de contabilidad básica para finanzas personales </h3>
 Aplicación creada con Google AI Studio (Gemini) para ayudar a cualquier persona a gestionar sus ingresos, gastos y hábitos financieros de forma sencilla e intuitiva.
 
-🧠 ¿Qué es FIA?
+##🧠 ¿Qué es FIA?##
 FIA es una aplicación web ligera que utiliza modelos de IA para ofrecer orientación financiera básica, responder preguntas sobre contabilidad personal y ayudar a los usuarios a entender mejor su situación económica.
 
 Su objetivo es democratizar la educación financiera mediante una interfaz simple y accesible.
 
-✨ Funcionalidades principales
+##✨ Funcionalidades principales##
 Registro y análisis de ingresos y gastos  
 Explica conceptos, clasifica movimientos y ayuda a entender patrones financieros.
 
-Asesoramiento financiero básico  
+###Asesoramiento financiero básico###
 Responde preguntas sobre ahorro, presupuestos, deudas y planificación personal.
 
 Explicaciones claras y educativas  
