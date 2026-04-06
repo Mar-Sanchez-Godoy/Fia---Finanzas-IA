@@ -10,15 +10,19 @@ Su objetivo es democratizar la educación financiera mediante una interfaz simpl
 
 ## ✨ Funcionalidades principales ##
 __Registro y análisis de ingresos y gastos__
+
 Explica conceptos, clasifica movimientos y ayuda a entender patrones financieros.
 
-** Asesoramiento financiero básico**
+__Asesoramiento financiero básico__
+
 Responde preguntas sobre ahorro, presupuestos, deudas y planificación personal.
 
-** Explicaciones claras y educativas  **
+__Explicaciones claras y educativas__
+
 Ideal para usuarios sin conocimientos previos de contabilidad.
 
-** Interfaz rápida y minimalista  **
+__Interfaz rápida y minimalista__
+
 Construida con React + TypeScript para una experiencia fluida.
 
 ## 🛠️ Tecnologías utilizadas ## 
