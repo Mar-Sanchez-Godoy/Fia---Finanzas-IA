@@ -1,9 +1,9 @@
 # 📘 FIA — Finanzas IA #
 
-</h3>Asistente de contabilidad básica para finanzas personales </h3>
+Asistente de contabilidad básica para finanzas personales.
 Aplicación creada con Google AI Studio (Gemini) para ayudar a cualquier persona a gestionar sus ingresos, gastos y hábitos financieros de forma sencilla e intuitiva.
 
-##🧠 ¿Qué es FIA?##
+## 🧠 ¿Qué es FIA? ##
 FIA es una aplicación web ligera que utiliza modelos de IA para ofrecer orientación financiera básica, responder preguntas sobre contabilidad personal y ayudar a los usuarios a entender mejor su situación económica.
 
 Su objetivo es democratizar la educación financiera mediante una interfaz simple y accesible.
@@ -15,20 +15,20 @@ Explica conceptos, clasifica movimientos y ayuda a entender patrones financieros
 ### Asesoramiento financiero básico ###
 Responde preguntas sobre ahorro, presupuestos, deudas y planificación personal.
 
-Explicaciones claras y educativas  
+### Explicaciones claras y educativas  ###
 Ideal para usuarios sin conocimientos previos de contabilidad.
 
-Interfaz rápida y minimalista  
+### Interfaz rápida y minimalista  ###
 Construida con React + TypeScript para una experiencia fluida.
 
-🛠️ Tecnologías utilizadas
-Área	Tecnologías
+## 🛠️ Tecnologías utilizadas ## 
+### Área	Tecnologías ### 
 IA	Google AI Studio (Gemini API)
 Frontend	React, TypeScript
 Entorno	Node.js, Vite
 Configuración	Variables de entorno (.env.local)
 
-🚀 Cómo ejecutar la app localmente
+## 🚀 Cómo ejecutar la app localmente ##
 Sigue estos pasos para correr la aplicación en tu equipo:
 
 Instalar Node.js  
@@ -50,11 +50,11 @@ npm run dev
 Abrir la aplicación  
 Accede desde tu navegador a la URL que aparece en consola.
 
-🌐 Versión online
+## 🌐 Versión online ##
 Puedes ver la app directamente desde Google AI Studio:
 https://ai.studio/apps/9580be97-2be2-4095-9118-8ecc62ee91a4
 
-📌 Objetivo del proyecto
+## 📌 Objetivo del proyecto ##
 Este proyecto forma parte de tu portfolio profesional como Analista de Datos / BI, demostrando:
 
 Integración de IA generativa en aplicaciones reales
