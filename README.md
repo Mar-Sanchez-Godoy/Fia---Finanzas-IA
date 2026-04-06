@@ -26,7 +26,8 @@ __4. Interfaz rápida y minimalista__
 Construida con React + TypeScript para una experiencia fluida.
 
 ## 🛠️ Tecnologías utilizadas ## 
-** Área	Tecnologías **
+__Área	Tecnologías__
+
 IA	Google AI Studio (Gemini API)
 Frontend	React, TypeScript
 Entorno	Node.js, Vite
