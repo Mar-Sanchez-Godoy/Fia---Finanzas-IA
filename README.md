@@ -36,26 +36,26 @@ Configuración	Variables de entorno (.env.local)
 ## 🚀 Cómo ejecutar la app localmente ##
 Sigue estos pasos para correr la aplicación en tu equipo:
 
-** Instalar Node.js  **
+__Instalar Node.js__
 Asegúrate de tener Node.js instalado.
 
-** Instalar dependencias **
+__Instalar dependencias__
 
-bash
+__bash__
 npm install
 Configurar la clave de API  
 Crea un archivo .env.local en la raíz del proyecto e incluye tu clave de Gemini:
 
-** Código **
+__Código__
 GEMINI_API_KEY = tu_api_key_aquí
 Iniciar el servidor de desarrollo
 
-** bash **
+__bash__
 npm run dev
 Abrir la aplicación  
 Accede desde tu navegador a la URL que aparece en consola.
 
-##** 🌐 Versión online **##
+## 🌐 __Versión online__ ##
 Puedes ver la app directamente desde Google AI Studio:
 https://ai.studio/apps/9580be97-2be2-4095-9118-8ecc62ee91a4
 
