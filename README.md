@@ -12,7 +12,7 @@ Su objetivo es democratizar la educación financiera mediante una interfaz simpl
 **Registro y análisis de ingresos y gastos **
 Explica conceptos, clasifica movimientos y ayuda a entender patrones financieros.
 
-** Asesoramiento financiero básico **
+** Asesoramiento financiero básico**
 Responde preguntas sobre ahorro, presupuestos, deudas y planificación personal.
 
 ** Explicaciones claras y educativas  **
