@@ -9,19 +9,19 @@ FIA es una aplicación web ligera que utiliza modelos de IA para ofrecer orienta
 Su objetivo es democratizar la educación financiera mediante una interfaz simple y accesible.
 
 ## ✨ Funcionalidades principales ##
-__Registro y análisis de ingresos y gastos__
+__1. Registro y análisis de ingresos y gastos__
 
 Explica conceptos, clasifica movimientos y ayuda a entender patrones financieros.
 
-__Asesoramiento financiero básico__
+__2. Asesoramiento financiero básico__
 
 Responde preguntas sobre ahorro, presupuestos, deudas y planificación personal.
 
-__Explicaciones claras y educativas__
+__3. Explicaciones claras y educativas__
 
 Ideal para usuarios sin conocimientos previos de contabilidad.
 
-__Interfaz rápida y minimalista__
+__4. Interfaz rápida y minimalista__
 
 Construida con React + TypeScript para una experiencia fluida.
 
