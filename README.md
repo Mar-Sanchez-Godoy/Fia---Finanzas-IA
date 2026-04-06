@@ -60,7 +60,7 @@ Puedes ver la app directamente desde Google AI Studio:
 https://ai.studio/apps/9580be97-2be2-4095-9118-8ecc62ee91a4
 
 ## 📌 Objetivo del proyecto ##
-Este proyecto forma parte de tu portfolio profesional como Analista de Datos / BI, demostrando:
+Este proyecto forma parte de mi portfolio profesional como Analista de Datos / BI, demostrando:
 
 Integración de IA generativa en aplicaciones reales
 
@@ -69,6 +69,8 @@ Buenas prácticas de desarrollo frontend
 Capacidad para crear herramientas educativas y funcionales
 
 Documentación clara y orientada al usuario
+
+
 
 
 
