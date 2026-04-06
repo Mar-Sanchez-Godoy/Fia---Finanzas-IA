@@ -9,20 +9,20 @@ FIA es una aplicación web ligera que utiliza modelos de IA para ofrecer orienta
 Su objetivo es democratizar la educación financiera mediante una interfaz simple y accesible.
 
 ## ✨ Funcionalidades principales ##
-Registro y análisis de ingresos y gastos  
+** Registro y análisis de ingresos y gastos  **
 Explica conceptos, clasifica movimientos y ayuda a entender patrones financieros.
 
-### Asesoramiento financiero básico ###
+** Asesoramiento financiero básico **
 Responde preguntas sobre ahorro, presupuestos, deudas y planificación personal.
 
-### Explicaciones claras y educativas  ###
+** Explicaciones claras y educativas  **
 Ideal para usuarios sin conocimientos previos de contabilidad.
 
-### Interfaz rápida y minimalista  ###
+** Interfaz rápida y minimalista  **
 Construida con React + TypeScript para una experiencia fluida.
 
 ## 🛠️ Tecnologías utilizadas ## 
-### Área	Tecnologías ### 
+** Área	Tecnologías **
 IA	Google AI Studio (Gemini API)
 Frontend	React, TypeScript
 Entorno	Node.js, Vite
@@ -31,26 +31,26 @@ Configuración	Variables de entorno (.env.local)
 ## 🚀 Cómo ejecutar la app localmente ##
 Sigue estos pasos para correr la aplicación en tu equipo:
 
-Instalar Node.js  
+** Instalar Node.js  **
 Asegúrate de tener Node.js instalado.
 
-Instalar dependencias
+** Instalar dependencias **
 
 bash
 npm install
 Configurar la clave de API  
 Crea un archivo .env.local en la raíz del proyecto e incluye tu clave de Gemini:
 
-Código
-GEMINI_API_KEY=tu_api_key_aquí
+** Código **
+GEMINI_API_KEY = tu_api_key_aquí
 Iniciar el servidor de desarrollo
 
-bash
+** bash **
 npm run dev
 Abrir la aplicación  
 Accede desde tu navegador a la URL que aparece en consola.
 
-## 🌐 Versión online ##
+##** 🌐 Versión online **##
 Puedes ver la app directamente desde Google AI Studio:
 https://ai.studio/apps/9580be97-2be2-4095-9118-8ecc62ee91a4
 
