@@ -10,11 +10,11 @@ Built with Google AI Studio (Gemini) to help anyone manage income, expenses, and
 <img src="Screenshots/App_prueba.png" width="150">
 </p>
 
-<p align="center">
+<p align="left">
 <img src="Screenshots/App_prueba2.png" width="150">
 </p>
 
-<p align="right">
+<p align="left">
 <img src="Screenshots/IA.png" width="150">
 </p>
 
