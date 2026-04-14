@@ -7,15 +7,15 @@ Built with Google AI Studio (Gemini) to help anyone manage income, expenses, and
 ## 📸 Dashboard Preview
 
 <p align="left">
-<img src="Screenshots/App_prueba.png" width="150">
+<img src="Screenshots/App_prueba.png" width="250">
 </p>
 
 <p align="left">
-<img src="Screenshots/App_prueba2.png" width="150">
+<img src="Screenshots/App_prueba2.png" width="250">
 </p>
 
 <p align="left">
-<img src="Screenshots/IA.png" width="150">
+<img src="Screenshots/IA.png" width="250">
 </p>
 
 ## 🧠 What Is FIA?
