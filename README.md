@@ -3,6 +3,13 @@
 A lightweight personal‑finance accounting assistant.
 Built with Google AI Studio (Gemini) to help anyone manage income, expenses, and financial habits in a simple and intuitive way.
 
+
+## 📸 Dashboard Preview
+
+<p align="center">
+<img src="Screenshots/App_prueba.png" width="750">
+</p>
+
 ## 🧠 What Is FIA?
 
 FIA is a lightweight web application that uses AI models to provide basic financial guidance, answer personal‑accounting questions, and help users better understand their financial situation.
