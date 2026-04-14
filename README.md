@@ -1,9 +1,89 @@
-# 📘 FIA — Finanzas IA #
+# 📘 FIA — AI Finance Assistant
+
+A lightweight personal‑finance accounting assistant.
+Built with Google AI Studio (Gemini) to help anyone manage income, expenses, and financial habits in a simple and intuitive way.
+
+## 🧠 What Is FIA?
+
+FIA is a lightweight web application that uses AI models to provide basic financial guidance, answer personal‑accounting questions, and help users better understand their financial situation.
+
+Its goal is to democratize financial education through a clean, accessible interface.
+
+## ✨ Key Features
+
+1. Income & Expense Tracking and Analysis  
+Explains concepts, categorizes transactions, and helps identify financial patterns.
+
+2. Basic Financial Guidance  
+Answers questions about saving, budgeting, debt, and personal planning.
+
+3. Clear, Educational Explanations  
+Designed for users with no prior accounting knowledge.
+
+4. Fast, Minimalist Interface  
+Built with React + TypeScript for a smooth user experience.
+
+## 🛠️ Tech Stack
+
+Area — Technologies
+
+AI — Google AI Studio (Gemini API)
+Frontend — React, TypeScript
+Environment — Node.js, Vite
+Configuration — Environment variables (.env.local)
+
+## 🚀 How to Run the App Locally
+
+Follow these steps to run the application on your machine:
+
+__Install Node.js__
+Make sure Node.js is installed.
+
+__Install dependencies__
+
+__bash__
+npm install
+
+Set up the API key  
+Create a .env.local file in the project root and add your Gemini key:
+
+__CODE__
+GEMINI_API_KEY=your_api_key_here
+Start the development server
+
+__bash__
+npm run dev
+Open the application  
+Visit the URL shown in the console.
+
+
+## 🌐 Online Version
+You can try the app directly in Google AI Studio:
+https://ai.studio/apps/9580be97-2be2-4095-9118-8ecc62ee91a4
+
+##  📌 Project Purpose
+This project is part of my professional portfolio as a Data Analyst / BI specialist, showcasing:
+
+Integration of generative AI into real applications
+
+Frontend development best practices
+
+Ability to build educational and functional tools
+
+Clear, user‑oriented documentation
+
+
+-- 
+
+# CASTELLANO
+
+# 📘 FIA — Finanzas IA 
 
 Asistente de contabilidad básica para finanzas personales.
 Aplicación creada con Google AI Studio (Gemini) para ayudar a cualquier persona a gestionar sus ingresos, gastos y hábitos financieros de forma sencilla e intuitiva.
 
-## 🧠 ¿Qué es FIA? ##
+
+## 🧠 ¿Qué es FIA?
 FIA es una aplicación web ligera que utiliza modelos de IA para ofrecer orientación financiera básica, responder preguntas sobre contabilidad personal y ayudar a los usuarios a entender mejor su situación económica.
 
 Su objetivo es democratizar la educación financiera mediante una interfaz simple y accesible.
