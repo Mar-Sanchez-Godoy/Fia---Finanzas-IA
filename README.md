@@ -6,7 +6,15 @@ Built with Google AI Studio (Gemini) to help anyone manage income, expenses, and
 
 ## 📸 Dashboard Preview
 
+<p align="left">
+<img src="Screenshots/App_prueba.png" width="150">
+</p>
+
 <p align="center">
+<img src="Screenshots/App_prueba.png" width="150">
+</p>
+
+<p align="right">
 <img src="Screenshots/App_prueba.png" width="150">
 </p>
 
