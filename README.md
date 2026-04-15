@@ -1,4 +1,4 @@
-# 📘 FIA — AI Finance Assistant
+# FIA — AI Finance Assistant
 
 A lightweight personal‑finance accounting assistant.
 Built with Google AI Studio (Gemini) to help anyone manage income, expenses, and financial habits in a simple and intuitive way.
@@ -18,13 +18,13 @@ Built with Google AI Studio (Gemini) to help anyone manage income, expenses, and
 <img src="Screenshots/IA.png" width="250">
 </p>
 
-## 🧠 What Is FIA?
+## What Is FIA?
 
 FIA is a lightweight web application that uses AI models to provide basic financial guidance, answer personal‑accounting questions, and help users better understand their financial situation.
 
 Its goal is to democratize financial education through a clean, accessible interface.
 
-## ✨ Key Features
+## Key Features
 
 1. Income & Expense Tracking and Analysis  
 Explains concepts, categorizes transactions, and helps identify financial patterns.
@@ -47,7 +47,7 @@ Frontend — React, TypeScript
 Environment — Node.js, Vite
 Configuration — Environment variables (.env.local)
 
-## 🚀 How to Run the App Locally
+## How to Run the App Locally
 
 Follow these steps to run the application on your machine:
 
@@ -76,7 +76,7 @@ Visit the URL shown in the console.
 You can try the app directly in Google AI Studio:
 https://ai.studio/apps/9580be97-2be2-4095-9118-8ecc62ee91a4
 
-##  📌 Project Purpose
+##  Project Purpose
 This project is part of my professional portfolio as a Data Analyst / BI specialist, showcasing:
 
 Integration of generative AI into real applications
@@ -92,18 +92,18 @@ Clear, user‑oriented documentation
 
 # CASTELLANO
 
-# 📘 FIA — Finanzas IA 
+# FIA — Finanzas IA 
 
 Asistente de contabilidad básica para finanzas personales.
 Aplicación creada con Google AI Studio (Gemini) para ayudar a cualquier persona a gestionar sus ingresos, gastos y hábitos financieros de forma sencilla e intuitiva.
 
 
-## 🧠 ¿Qué es FIA?
+## ¿Qué es FIA?
 FIA es una aplicación web ligera que utiliza modelos de IA para ofrecer orientación financiera básica, responder preguntas sobre contabilidad personal y ayudar a los usuarios a entender mejor su situación económica.
 
 Su objetivo es democratizar la educación financiera mediante una interfaz simple y accesible.
 
-## ✨ Funcionalidades principales ##
+## Funcionalidades principales
 __1. Registro y análisis de ingresos y gastos__
 
 Explica conceptos, clasifica movimientos y ayuda a entender patrones financieros.
@@ -128,7 +128,7 @@ Frontend	React, TypeScript
 Entorno	Node.js, Vite
 Configuración	Variables de entorno (.env.local)
 
-## 🚀 Cómo ejecutar la app localmente ##
+## Cómo ejecutar la app localmente ##
 Sigue estos pasos para correr la aplicación en tu equipo:
 
 __Instalar Node.js__
@@ -150,11 +150,11 @@ npm run dev
 Abrir la aplicación  
 Accede desde tu navegador a la URL que aparece en consola.
 
-## 🌐 __Versión online__ ##
+## 🌐 __Versión online__ 
 Puedes ver la app directamente desde Google AI Studio:
 https://ai.studio/apps/9580be97-2be2-4095-9118-8ecc62ee91a4
 
-## 📌 Objetivo del proyecto ##
+## Objetivo del proyecto 
 Este proyecto forma parte de mi portfolio profesional como Analista de Datos / BI, demostrando:
 
 Integración de IA generativa en aplicaciones reales
